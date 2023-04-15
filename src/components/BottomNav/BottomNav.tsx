@@ -35,7 +35,7 @@ const BottomNav = () => {
         />
         <p>Resell</p>
       </Link>{' '}
-      <Link href="/home">
+      <Link href="/home/discover">
         <Image src={navbarIcons.homeIcon} alt="home" width="40" height="40" />
       </Link>{' '}
       <Link href="/wallet">
@@ -47,7 +47,7 @@ const BottomNav = () => {
         />
         <p>Wallet</p>
       </Link>{' '}
-      <Link href="/ticket">
+      <Link href="/tickets">
         <Image
           src={navbarIcons.ticketIcon}
           alt="ticket"
