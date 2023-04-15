@@ -1,0 +1,16 @@
+{
+  "theme_color": "#F4ED35CF",
+  "background_color": "#000000",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "name": "gimetix",
+  "short_name": "gmtx",
+  "description": "Event livestream and ticketing app ",
+  "icons": [
+    {
+      "name": "vercel.svg"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+.bottomNav {
+  width: 30%;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 35%;
+  background: #000000;
+  margin-top: 20px;
+}
+.bottomNav a {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+.bottomNav a p {
+  margin-top: 5px;
+}
+.bottomNav a:hover img.links {
+  transform: scale(1.15);
+  transition: 300ms linear;
+}
+@media only screen and (max-width: 900px) {
+  .bottomNav {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .bottomNav {
+    width: 100%;
+    left: 0%;
+  }
+}

@@ -1,0 +1,17 @@
+.categoriesContainer {
+  width: 100%;
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: calc(100vh - 300px);
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .categoriesContainer {
+    height: calc(100vh - 250px);
+  }
+}

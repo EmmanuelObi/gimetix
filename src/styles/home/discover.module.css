@@ -1,0 +1,33 @@
+.topLevel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.topLevel > p:first-child {
+  color: #4a4949;
+  font-weight: 500;
+  font-size: 15px;
+}
+.topLevel > p:last-child {
+  color: #4a4949;
+  font-weight: 300;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: scroll;
+  margin-bottom: 20px;
+}
+
+.slider > div {
+  margin-right: 15px;
+}
