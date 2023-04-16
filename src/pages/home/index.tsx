@@ -47,7 +47,9 @@ const BaseScreen = ({ children }: { children: React.ReactNode }) => {
             {value} <IconChevronDown size={18} stroke={1.5} />{' '}
           </p>
         )}
-        <Image src={pageIcons.profileIcon} alt="profile" width="25" />
+        <Link href="/profile">
+          <Image src={pageIcons.profileIcon} alt="profile" width="25" />
+        </Link>
       </div>
       <div className={classes.inputs}>
         <div>

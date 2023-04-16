@@ -26,7 +26,10 @@ const EventCard = ({ id, item, eventType }: IEventCardProps) => {
       <Image src={image} alt={`event-${id}`} className={classes.eventImage} />
       <div className={classes.eventType}>
         {eventType ? (
-          <Image src={handleEventAssetType(eventType)} alt={`asset-${id}`} />
+          <Image
+            src={handleEventAssetType(eventType)}
+            alt={`asset-${id + 1}`}
+          />
         ) : null}
         <div className={classes.info}>
           <p className={classes.hostName}>{host}</p>

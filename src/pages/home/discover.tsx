@@ -5,6 +5,7 @@ import React from 'react';
 import BaseScreen from './index';
 import classes from '@/styles/home/discover.module.css';
 import { IconChevronRight } from '@tabler/icons-react';
+import { CarouselCard } from '@/components/EventCarousel';
 
 const Discover = () => {
   return (
