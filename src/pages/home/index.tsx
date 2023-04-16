@@ -68,6 +68,9 @@ const BaseScreen = ({ children }: { children: React.ReactNode }) => {
                 background: router.pathname.includes(item.url)
                   ? '#F4ED35'
                   : '#D9D9D9',
+                fontWeight: router.pathname.includes(item.url)
+                  ? 'bold'
+                  : 'normal',
               }}
             >
               <div>
