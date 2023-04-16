@@ -67,6 +67,10 @@
   align-items: center;
   background: red;
 }
+.inputs .categories::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+}
 .categories a {
   display: flex;
   justify-content: space-evenly;
