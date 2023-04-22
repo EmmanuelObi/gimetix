@@ -1,0 +1,19 @@
+.app_wrapper {
+  width: 95%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topNav p {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+.topNav img {
+  cursor: pointer;
+}

@@ -1,5 +1,107 @@
 import { concertAssets, movieAssets, pageIcons, sportAssets } from './assets';
 
+export const ListData = [
+  {
+    host: 'Adekunle Gold',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '20,000',
+    image: concertAssets.concert2,
+  },
+  {
+    host: 'Bovi',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '30,000',
+    image: concertAssets.concert1,
+  },
+
+  {
+    host: 'Nigeria vs Argentina',
+    dateLocation: 'Wed 24/8 - 4:00 PM - Ibom National Stadium',
+    price: '5,000',
+    image: sportAssets.field3,
+  },
+
+  {
+    host: 'Iron Man',
+    dateLocation: 'Ozone Cinemas',
+    price: '4,500',
+    image: movieAssets.ironImg,
+  },
+  {
+    host: 'Wizkid',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '30,000',
+    image: concertAssets.concert1,
+  },
+  {
+    host: 'Asake',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '10,000',
+    image: concertAssets.concert4,
+  },
+  {
+    host: 'AY',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '10,000',
+    image: concertAssets.concert4,
+  },
+  {
+    host: 'Nigeria vs Togo',
+    dateLocation: 'Fri 14/8 - 6:00 PM -  National Stadium Surulere',
+    price: '2,000',
+    image: sportAssets.field4,
+  },
+  {
+    host: 'Burna Boy',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '15,000',
+    image: concertAssets.concert3,
+  },
+  {
+    host: 'Kwara United',
+    dateLocation: 'Tomorrow + 38 more',
+    price: '1,000',
+    image: sportAssets.field5,
+  },
+  {
+    host: 'Scream 8',
+    dateLocation: 'IMAX Cinemas',
+    price: '3,000',
+    image: movieAssets.screamImg,
+  },
+  {
+    host: 'Ultimate Search',
+    dateLocation: 'Silverbird Cinemas',
+    price: '5,000',
+    image: movieAssets.ultimateImg,
+  },
+  {
+    host: 'Buchi',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '15,000',
+    image: concertAssets.concert3,
+  },
+
+  {
+    host: 'Okey Bakassi',
+    dateLocation: 'Mon 24/5 - 8:00 PM - Eko Hotels & Suites',
+    price: '20,000',
+    image: concertAssets.concert3,
+  },
+  {
+    host: 'Nigeria vs Austria',
+    dateLocation: 'Fri 14/8 - 6:00 PM - Abuja National Stadium',
+    price: '3,000',
+    image: sportAssets.field2,
+  },
+
+  {
+    host: 'Designated Survivor',
+    dateLocation: 'IMAX Cinemas',
+    price: '5,000',
+    image: movieAssets.designatedImg,
+  },
+];
 export const concertData = [
   {
     host: 'Adekunle Gold',

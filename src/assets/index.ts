@@ -31,6 +31,14 @@ import ultimateImg from './movies-img/ultimate.svg';
 import ironImg from './movies-img/iron.svg';
 import designatedImg from './movies-img/designated.svg';
 import thorImg from './movies-img/thor.svg';
+import markedIcon from './icons/marked.svg';
+import listWhite from './icons/list-white.svg';
+import listDark from './icons/list-black.svg';
+import liveWhite from './icons/live-white.svg';
+import liveDark from './icons/live-dark.svg';
+import homeWhite from './icons/home-white.svg';
+import homeDark from './icons/home-dark.svg';
+import burgerIcon from './icons/burger.svg';
 
 export const navbarIcons = {
   playIcon,
@@ -38,6 +46,13 @@ export const navbarIcons = {
   walletIcon,
   ticketIcon,
   cashIcon,
+  listDark,
+  listWhite,
+  liveDark,
+  liveWhite,
+  homeDark,
+  homeWhite,
+  burgerIcon,
 };
 
 export const pageIcons = {
@@ -53,6 +68,7 @@ export const pageIcons = {
   ballIcon,
   tvIcon,
   comicIcon,
+  markedIcon,
 };
 
 export const concertAssets = {
