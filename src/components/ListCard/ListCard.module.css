@@ -1,0 +1,62 @@
+.list_card {
+  min-width: 32.5%;
+  min-height: 200px;
+  margin: 10px 0;
+  position: relative;
+}
+.list_card .listImage {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  top: 0;
+}
+.list_card .info {
+  background: #1e1b1b;
+  min-height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0 0 5%;
+}
+.list_card .live_area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ff0000;
+  height: 25px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 'Roboto', sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info p {
+  color: #ffffff;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+.info span {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+}
+@media only screen and (max-width: 900px) {
+  .list_card {
+    min-width: 48%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .list_card {
+    min-width: 100%;
+  }
+}

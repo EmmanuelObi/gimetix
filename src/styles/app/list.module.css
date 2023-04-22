@@ -1,0 +1,9 @@
+.list_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  height: calc(100vh - 160px);
+  overflow-y: scroll;
+}

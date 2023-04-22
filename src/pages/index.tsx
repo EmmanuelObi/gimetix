@@ -1,4 +1,4 @@
-import { Work_Sans } from 'next/font/google';
+import { Work_Sans, Inter } from 'next/font/google';
 import { motion } from 'framer-motion';
 import styles from '@/styles/Home.module.css';
 import PageHead from '@/components/PageHead/PageHead';
@@ -11,7 +11,7 @@ export default function Home() {
   let timeout: any = null;
 
   const router = useRouter();
-  const line1 = 'GIMETIX';
+  const line1 = 'GMTX';
   const sentence = {
     hidden: { opacity: 0 },
     visible: {
@@ -38,7 +38,7 @@ export default function Home() {
 
   const handleSplash = () => {
     timeout = setTimeout(() => {
-      router.push('home/discover');
+      router.push('auth');
     }, 5000);
   };
 
