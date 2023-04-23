@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { workSans } from '.';
 
 export type PageLayoutProps = {
@@ -23,6 +24,7 @@ export default function App({
           font-family: ${workSans.style.fontFamily};
         }
       `}</style>
+      <Notifications position="top-right" zIndex={2077} />
       {Component.PageLayout ? (
         <Component.PageLayout>
           <Component {...pageProps} />

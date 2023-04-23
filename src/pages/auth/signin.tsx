@@ -5,13 +5,18 @@ import { Button } from '@mantine/core';
 import Link from 'next/link';
 import { useForm } from '@mantine/form';
 import { useRouter } from 'next/router';
+import { notifications } from '@mantine/notifications';
+import useAuth from '@/hooks/useAuth';
+import { IconCheck, IconLockCancel } from '@tabler/icons-react';
 
 const Signin = () => {
+  const { signInWithEmailandPassword, signInWithGoogle } = useAuth();
   const [isSelected, setIsSelected] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const form = useForm({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
 
@@ -21,12 +26,48 @@ const Signin = () => {
           ? 'Password should include at least 6 characters'
           : null,
 
-      username: (val) =>
-        val.length <= 3
-          ? 'Username should include at least 3 characters'
-          : null,
+      email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
     },
   });
+  const handleSubmit = async (data: any, e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    notifications.show({
+      id: 'sign-in',
+      loading: true,
+      title: 'Signing In',
+      message: 'Knocking down doors..',
+      autoClose: false,
+      withCloseButton: false,
+    });
+
+    signInWithEmailandPassword(data)
+      .then(() => {
+        notifications.update({
+          id: 'sign-in',
+          color: 'indigo',
+          title: 'Success',
+          message: "You're all set",
+          icon: <IconCheck size="1rem" />,
+          autoClose: 5000,
+          withCloseButton: false,
+        });
+        router.push('/app/live');
+      })
+      .catch((err) =>
+        notifications.update({
+          id: 'sign-in',
+          color: 'red',
+          title: 'Error',
+          message: err.message,
+          icon: <IconLockCancel size="1rem" />,
+          autoClose: 3000,
+          withCloseButton: false,
+        })
+      );
+
+    setLoading(false);
+  };
   return (
     <div className={classes.signup_container}>
       <div className={classes.content}>
@@ -37,18 +78,19 @@ const Signin = () => {
           mih="45px"
           miw="300px"
           radius="20px"
+          onClick={signInWithGoogle}
         >
           Continue with Google
         </Button>
         {isSelected ? (
           <>
-            <div>
+            <form onSubmit={form.onSubmit(handleSubmit)}>
               <input
-                type="text"
-                placeholder="Username"
-                value={form.values.username}
+                type="email"
+                placeholder="Email"
+                value={form.values.email}
                 onChange={(event) =>
-                  form.setFieldValue('username', event.currentTarget.value)
+                  form.setFieldValue('email', event.currentTarget.value)
                 }
               />
               <input
@@ -59,16 +101,18 @@ const Signin = () => {
                   form.setFieldValue('password', event.currentTarget.value)
                 }
               />
-            </div>
-            <Button
-              color="indigo"
-              mih="45px"
-              miw="300px"
-              radius="20px"
-              onClick={() => router.push('/app/live')}
-            >
-              Sign In
-            </Button>
+              <Button
+                color="indigo"
+                mih="45px"
+                miw="300px"
+                type="submit"
+                radius="20px"
+                loading={loading}
+                loaderPosition="left"
+              >
+                Sign In
+              </Button>
+            </form>
           </>
         ) : (
           <Button
