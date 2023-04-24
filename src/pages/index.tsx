@@ -64,6 +64,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             className={workSans.className}
+            style={{ fontFamily: 'Work Sans' }}
           >
             {line1.split('').map((char, index) => (
               <motion.span key={char + '-' + index} variants={letter}>
