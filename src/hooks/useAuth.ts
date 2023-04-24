@@ -6,7 +6,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { auth, googleProvider, db } from '../config/firebase';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, setDoc, doc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import { notifications } from '@mantine/notifications';
 
@@ -14,7 +14,16 @@ const useAuth = () => {
   const router = useRouter();
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signInWithPopup(auth, googleProvider).then((userCredential) =>
+        setDoc(doc(db, 'users', userCredential.user.uid), {
+          firstname: '',
+          lastname: '',
+          username: userCredential.user.displayName,
+          password: '',
+          email: userCredential.user.email,
+          isSubscriber: false,
+        })
+      );
       router.push('/app');
       notifications.show({
         id: 'sign-in',
@@ -66,19 +75,17 @@ const useAuth = () => {
   };
 
   const addUser = async (data: any) => {
-    const usersCollectionRef = collection(db, 'users');
-
     try {
-      await addDoc(usersCollectionRef, {
+      const docRef = await addDoc(collection(db, 'users'), {
         firstname: data.firstName,
-        lastname: data.lastname,
+        lastname: data.lastName,
         username: data.username,
         password: data.password,
         email: data.email,
         isSubscriber: false,
       });
     } catch (err) {
-      console.log(err);
+      console.log({ err });
     }
   };
 
