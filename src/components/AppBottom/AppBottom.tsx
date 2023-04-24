@@ -5,15 +5,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { navbarIcons } from '@/assets';
 import { useRouter } from 'next/router';
+import { Box, VStack } from '@chakra-ui/react';
 
 const AppBottom = () => {
   const router = useRouter();
   return (
     <Flex
       px="xs"
-      mih={70}
       gap="xs"
-      justify="space-around"
+      justify="space-evenly"
       align="center"
       direction="row"
       wrap="wrap"

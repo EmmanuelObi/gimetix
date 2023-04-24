@@ -15,7 +15,7 @@ const useAuth = () => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      router.push('/app/live');
+      router.push('/app');
       notifications.show({
         id: 'sign-in',
         color: 'indigo',

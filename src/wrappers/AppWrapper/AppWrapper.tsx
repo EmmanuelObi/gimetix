@@ -26,7 +26,22 @@ const AppWrapper = ({ children }: { children: React.ReactNode }) => {
           <Image src={navbarIcons.burgerIcon} alt="burger" onClick={onOpen} />
         </div>
         {children}
-        <AppBottom />
+        <div
+          style={{
+            width: '100%',
+            background: 'black',
+            minHeight: '70px',
+            position: 'fixed',
+            bottom: 0,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 0,
+            margin: 0,
+          }}
+        >
+          <AppBottom />
+        </div>
       </div>
       <SideDrawer isOpen={isOpen} onClose={onClose} />
     </>

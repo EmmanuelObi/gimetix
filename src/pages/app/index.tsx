@@ -4,10 +4,9 @@ import { VStack, Text, HStack, Box, chakra } from '@chakra-ui/react';
 import React from 'react';
 import Image from 'next/image';
 import classes from '@/styles/app/list.module.css';
+import { homeData } from '@/data';
 
 const Home = () => {
-  const { home1, home2, home3, home4 } = homeAssets;
-  const data = [home1, home2, home3, home4, home1, home2, home3, home4];
   return (
     <Box width="full" my="10" overflowY="scroll" h="calc(100vh - 160px)">
       <Text
@@ -21,7 +20,7 @@ const Home = () => {
       </Text>
 
       <HStack overflowX="scroll" w="full">
-        {data.map((item, id) => (
+        {homeData.map((item, id) => (
           <VStack
             key={id}
             position="relative"
@@ -30,7 +29,7 @@ const Home = () => {
             bg={{ base: 'black', red: 'red' }}
             mx="2"
           >
-            <Image src={item} alt="wizzy" className={classes.mainImg} />
+            <Image src={item.image} alt="wizzy" className={classes.mainImg} />
             <Box
               w="full"
               position="absolute"
@@ -46,7 +45,7 @@ const Home = () => {
                 fontWeight="bold"
                 fontFamily="Roboto"
               >
-                Adam Levine
+                {item.name}
               </Text>
               <Text
                 fontSize="md"
@@ -83,7 +82,7 @@ const Home = () => {
       </Box>
 
       <HStack overflowX="scroll" w="full">
-        {data.reverse().map((item, id) => (
+        {homeData.reverse().map((item, id) => (
           <VStack
             key={id}
             position="relative"
@@ -92,7 +91,7 @@ const Home = () => {
             mx="2"
             bg={{ base: 'black', red: 'red' }}
           >
-            <Image src={item} alt="wizzy" className={classes.mainImg} />
+            <Image src={item.image} alt="wizzy" className={classes.mainImg} />
             <Box
               w="full"
               position="absolute"
@@ -108,7 +107,7 @@ const Home = () => {
                 fontWeight="bold"
                 fontFamily="Roboto"
               >
-                BasketMouth
+                {item.name}
               </Text>
               <Text
                 fontSize="md"

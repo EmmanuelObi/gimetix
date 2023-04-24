@@ -52,7 +52,7 @@ const Signin = () => {
           autoClose: 5000,
           withCloseButton: false,
         });
-        router.push('/app/live');
+        router.push('/app');
       })
       .catch((err) =>
         notifications.update({
