@@ -45,6 +45,17 @@ import billingIcon from './icons/billing.svg';
 import settingsIcon from './icons/setting.svg';
 import logOutIcon from './icons/leave.svg';
 import rightCaretIcon from './icons/right-caret.svg';
+import home1 from './home-img/home1.svg';
+import home2 from './home-img/home2.svg';
+import home3 from './home-img/home3.svg';
+import home4 from './home-img/home4.svg';
+
+export const homeAssets = {
+  home1,
+  home2,
+  home3,
+  home4,
+};
 
 export const navbarIcons = {
   playIcon,
