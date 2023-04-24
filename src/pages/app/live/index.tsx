@@ -7,7 +7,7 @@ import ListCard from '@/components/ListCard/ListCard';
 const Live = () => {
   return (
     <div className={classes.list_container}>
-      {[...ListData].slice(0, 7).map((item, id) => (
+      {[...ListData].slice(0, 4).map((item, id) => (
         <ListCard id={id} key={id} item={item} isLive={true} />
       ))}
     </div>

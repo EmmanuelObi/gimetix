@@ -44,8 +44,24 @@ const useAuth = () => {
   const logOut = async () => {
     try {
       await signOut(auth);
-    } catch (err) {
-      console.log(err);
+      notifications.show({
+        id: 'sign-out',
+        color: 'indigo',
+        title: 'Success',
+        message: 'Logged Out',
+        autoClose: 5000,
+        withCloseButton: false,
+      });
+      router.push('/auth');
+    } catch (err: any) {
+      notifications.show({
+        id: 'sign-out',
+        color: 'red',
+        title: 'Error',
+        message: err.message,
+        autoClose: 3000,
+        withCloseButton: false,
+      });
     }
   };
 

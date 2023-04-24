@@ -11,13 +11,8 @@ import { auth } from '@/config/firebase';
 import { IconCheck, IconLockCancel } from '@tabler/icons-react';
 
 const SignUp = () => {
-  const {
-    signUpWithEmailandPassword,
-    addUser,
-    verifyEmail,
-    signInWithGoogle,
-    logOut,
-  } = useAuth();
+  const { signUpWithEmailandPassword, addUser, verifyEmail, signInWithGoogle } =
+    useAuth();
   const [isSelected, setIsSelected] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -158,7 +153,6 @@ const SignUp = () => {
               >
                 Sign Up
               </Button>
-              <button onClick={logOut}>here</button>
             </form>
           </>
         ) : (

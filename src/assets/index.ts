@@ -39,6 +39,12 @@ import liveDark from './icons/live-dark.svg';
 import homeWhite from './icons/home-white.svg';
 import homeDark from './icons/home-dark.svg';
 import burgerIcon from './icons/burger.svg';
+import behindIcon from './icons/behind.svg';
+import notifyIcon from './icons/notify.svg';
+import billingIcon from './icons/billing.svg';
+import settingsIcon from './icons/setting.svg';
+import logOutIcon from './icons/leave.svg';
+import rightCaretIcon from './icons/right-caret.svg';
 
 export const navbarIcons = {
   playIcon,
@@ -53,6 +59,12 @@ export const navbarIcons = {
   homeDark,
   homeWhite,
   burgerIcon,
+  behindIcon,
+  notifyIcon,
+  billingIcon,
+  settingsIcon,
+  logOutIcon,
+  rightCaretIcon,
 };
 
 export const pageIcons = {

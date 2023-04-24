@@ -11,7 +11,7 @@ const AppBottom = () => {
   return (
     <Flex
       px="xs"
-      mih={80}
+      mih={70}
       gap="xs"
       justify="space-around"
       align="center"
@@ -34,7 +34,7 @@ const AppBottom = () => {
       <Link href="/app/live">
         <Image
           src={
-            router.pathname === '/app/live'
+            router.pathname.includes('/app/live')
               ? navbarIcons.liveWhite
               : navbarIcons.liveDark
           }
@@ -46,7 +46,7 @@ const AppBottom = () => {
       <Link href="/app/list">
         <Image
           src={
-            router.pathname === '/app/list'
+            router.pathname.includes('/app/list')
               ? navbarIcons.listWhite
               : navbarIcons.listDark
           }
