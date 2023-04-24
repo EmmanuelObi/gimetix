@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css';
 import PageHead from '@/components/PageHead/PageHead';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { auth } from '@/config/firebase';
 
 export const workSans = Work_Sans({ subsets: ['latin'] });
 
@@ -38,7 +39,11 @@ export default function Home() {
 
   const handleSplash = () => {
     timeout = setTimeout(() => {
-      router.push('auth');
+      if (auth.currentUser) {
+        router.push('app');
+      } else {
+        router.push('auth');
+      }
     }, 5000);
   };
 
@@ -59,6 +64,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             className={workSans.className}
+            style={{ fontFamily: 'Work Sans' }}
           >
             {line1.split('').map((char, index) => (
               <motion.span key={char + '-' + index} variants={letter}>

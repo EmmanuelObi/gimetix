@@ -1,7 +1,9 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { workSans } from '.';
+import { ChakraProvider } from '@chakra-ui/react';
 
 export type PageLayoutProps = {
   children: React.ReactNode;
@@ -18,18 +20,21 @@ export default function App({
 }: TComponentWithPageLayout) {
   return (
     <MantineProvider>
-      <style jsx global>{`
-        html {
-          font-family: ${workSans.style.fontFamily};
-        }
-      `}</style>
-      {Component.PageLayout ? (
-        <Component.PageLayout>
+      <ChakraProvider>
+        <style jsx global>{`
+          html {
+            font-family: ${workSans.style.fontFamily};
+          }
+        `}</style>
+        <Notifications position="top-right" zIndex={2077} />
+        {Component.PageLayout ? (
+          <Component.PageLayout>
+            <Component {...pageProps} />
+          </Component.PageLayout>
+        ) : (
           <Component {...pageProps} />
-        </Component.PageLayout>
-      ) : (
-        <Component {...pageProps} />
-      )}
+        )}
+      </ChakraProvider>
     </MantineProvider>
   );
 }

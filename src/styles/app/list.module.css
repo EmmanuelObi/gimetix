@@ -1,9 +1,17 @@
 .list_container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
   flex-wrap: wrap;
   height: calc(100vh - 160px);
   overflow-y: scroll;
+}
+
+.mainImg {
+  position: absolute;
+  top: 0;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
 }

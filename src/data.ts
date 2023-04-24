@@ -1,5 +1,45 @@
-import { concertAssets, movieAssets, pageIcons, sportAssets } from './assets';
+import {
+  concertAssets,
+  homeAssets,
+  movieAssets,
+  pageIcons,
+  sportAssets,
+} from './assets';
 
+export const homeData = [
+  {
+    name: 'Adam Levine',
+    image: homeAssets.home1,
+  },
+  {
+    name: 'Chord Overstreet',
+    image: homeAssets.home2,
+  },
+  {
+    name: 'Zazoo',
+    image: homeAssets.home3,
+  },
+  {
+    name: 'Odumodu Blvck',
+    image: homeAssets.home4,
+  },
+  {
+    name: 'Adam Levine',
+    image: homeAssets.home1,
+  },
+  {
+    name: 'Chord Overstreet',
+    image: homeAssets.home2,
+  },
+  {
+    name: 'Zazoo',
+    image: homeAssets.home3,
+  },
+  {
+    name: 'Odumodu Blvck',
+    image: homeAssets.home4,
+  },
+];
 export const ListData = [
   {
     host: 'Adekunle Gold',

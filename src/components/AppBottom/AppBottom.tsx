@@ -5,15 +5,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { navbarIcons } from '@/assets';
 import { useRouter } from 'next/router';
+import { Box, VStack } from '@chakra-ui/react';
 
 const AppBottom = () => {
   const router = useRouter();
   return (
     <Flex
       px="xs"
-      mih={80}
       gap="xs"
-      justify="space-around"
+      justify="space-evenly"
       align="center"
       direction="row"
       wrap="wrap"
@@ -34,7 +34,7 @@ const AppBottom = () => {
       <Link href="/app/live">
         <Image
           src={
-            router.pathname === '/app/live'
+            router.pathname.includes('/app/live')
               ? navbarIcons.liveWhite
               : navbarIcons.liveDark
           }
@@ -46,7 +46,7 @@ const AppBottom = () => {
       <Link href="/app/list">
         <Image
           src={
-            router.pathname === '/app/list'
+            router.pathname.includes('/app/list')
               ? navbarIcons.listWhite
               : navbarIcons.listDark
           }
