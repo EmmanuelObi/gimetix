@@ -11,6 +11,11 @@ import { auth } from '@/config/firebase';
 const AppWrapper = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const { isOpen, onClose, onOpen } = useDisclosure();
+  // const [displayName, setDisplayName] = useState<any>('');
+
+  // useEffect(() => {
+  //   setTimeout(() => setDisplayName(auth?.currentUser?.displayName), 5000);
+  // }, []);
 
   return (
     <>
@@ -19,9 +24,9 @@ const AppWrapper = ({ children }: { children: React.ReactNode }) => {
           <p>
             {router.pathname.includes('list')
               ? 'My Lists'
-              : auth?.currentUser?.displayName
-              ? `Dear ${auth?.currentUser?.displayName},`
-              : 'GMTX'}
+              : // : displayName
+                // ? `Dear ${displayName},`
+                'GMTX'}
           </p>
           <Image src={navbarIcons.burgerIcon} alt="burger" onClick={onOpen} />
         </div>
