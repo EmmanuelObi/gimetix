@@ -3,6 +3,7 @@ import { Text, VStack, chakra, Box } from '@chakra-ui/react';
 import React from 'react';
 import classes from '@/styles/app/list.module.css';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const links: any = {
   a: 'https://weaksports.xyz/footy/ch2.php',
@@ -74,7 +75,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            HipTv{' '}
+            West Ham VS Liverpool{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -85,7 +86,7 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              Watch
+              <Link href={`/app/live/a`}>Watch</Link>
             </chakra.span>
           </Text>
           <Text
@@ -105,7 +106,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            Sound City{' '}
+            Man City VS Arsenal{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -116,7 +117,7 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              Watch
+              <Link href={`/app/live/b`}>Watch</Link>
             </chakra.span>
           </Text>
           <Text
@@ -136,7 +137,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            POP Central{' '}
+            Chelsea VS Brentford{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -147,7 +148,7 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              Watch
+              <Link href={`/app/live/c`}>Watch</Link>
             </chakra.span>
           </Text>
         </Box>
