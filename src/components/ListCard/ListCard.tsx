@@ -10,7 +10,7 @@ interface IListCardProps {
     host: string;
     dateLocation: string;
     price: string;
-    image: string;
+    image: any;
     link: string;
   };
   isLive: boolean;
