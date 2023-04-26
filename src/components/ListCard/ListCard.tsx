@@ -6,14 +6,20 @@ import Link from 'next/link';
 
 interface IListCardProps {
   id: number;
-  item: { host: string; dateLocation: string; price: string; image: string };
+  item: {
+    host: string;
+    dateLocation: string;
+    price: string;
+    image: string;
+    link: string;
+  };
   isLive: boolean;
 }
 
 const ListCard = ({ id, item, isLive }: IListCardProps) => {
-  const { host, dateLocation, image } = item;
+  const { host, dateLocation, image, link } = item;
   return (
-    <Link href={`/app/live/${id + 1}`} className={classes.list_card}>
+    <Link href={`/app/live/${link}`} className={classes.list_card}>
       {isLive ? <p className={classes.live_area}>LIVE</p> : null}
       <Image
         src={image}

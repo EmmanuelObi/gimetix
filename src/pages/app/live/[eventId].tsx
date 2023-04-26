@@ -2,30 +2,38 @@ import AppWrapper from '@/wrappers/AppWrapper/AppWrapper';
 import { Text, VStack, chakra, Box } from '@chakra-ui/react';
 import React from 'react';
 import classes from '@/styles/app/list.module.css';
+import { useRouter } from 'next/router';
 
+const links: any = {
+  a: 'https://weaksports.xyz/footy/ch2.php',
+  b: 'https://weaksports.xyz/footy/ch1.php',
+  c: 'https://weaksports.xyz/footy/ch3.php',
+};
 const EventStream = () => {
+  const router: any = useRouter();
   return (
     <div className={classes.list_container}>
       <br />{' '}
-      {/* https://1stream.eu/game/miami-heat-milwaukee-bucks-live-stream/626935?sport=basketball */}
-      {/* <iframe
-        width="100%"
-        height="400px"
-        src="https://www.youtube.com/embed/vU5wa1mIMfw?autoplay=1&mute=0"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe> */}
-      <iframe
-        width="100%"
-        height="400px"
-        src="https://wikisport.click/strm/t4.php"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe>
+      <div
+        style={{
+          width: '100%',
+          height: '400px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          overflowY: 'hidden',
+        }}
+      >
+        <iframe
+          width="700"
+          height="480"
+          src={links[router.query.eventId]}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
       <VStack w={{ base: '90%', md: '70%' }} mx="auto" mt="8">
         <Box
           w="full"
@@ -40,9 +48,7 @@ const EventStream = () => {
             w={{ base: 'calc(100% - 100px)', md: 'calc(100% - 200px)' }}
             h="0.5"
             bg="#fff"
-          >
-            1
-          </chakra.span>
+          ></chakra.span>
         </Box>
         <Box
           display="flex"

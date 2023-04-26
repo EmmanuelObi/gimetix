@@ -4,7 +4,7 @@ import { VStack, Text, HStack, Box, chakra } from '@chakra-ui/react';
 import React from 'react';
 import Image from 'next/image';
 import classes from '@/styles/app/list.module.css';
-import { homeData } from '@/data';
+import { homeData, ListData } from '@/data';
 
 const Home = () => {
   return (
@@ -20,7 +20,7 @@ const Home = () => {
       </Text>
 
       <HStack overflowX="scroll" w="full">
-        {homeData.map((item, id) => (
+        {ListData.map((item, id) => (
           <VStack
             key={id}
             position="relative"
@@ -45,7 +45,7 @@ const Home = () => {
                 fontWeight="bold"
                 fontFamily="Roboto"
               >
-                {item.name}
+                {item.host}
               </Text>
               <Text
                 fontSize="md"
@@ -82,7 +82,7 @@ const Home = () => {
       </Box>
 
       <HStack overflowX="scroll" w="full">
-        {homeData.reverse().map((item, id) => (
+        {ListData.reverse().map((item, id) => (
           <VStack
             key={id}
             position="relative"
@@ -107,7 +107,7 @@ const Home = () => {
                 fontWeight="bold"
                 fontFamily="Roboto"
               >
-                {item.name}
+                {item.host}
               </Text>
               <Text
                 fontSize="md"
