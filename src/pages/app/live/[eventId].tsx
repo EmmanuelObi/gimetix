@@ -18,7 +18,7 @@ const EventStream = () => {
       <div
         style={{
           width: '100%',
-          height: '400px',
+          height: '450px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -27,7 +27,7 @@ const EventStream = () => {
       >
         <iframe
           width="700"
-          height="480"
+          height="400"
           src={links[router.query.eventId]}
           title="YouTube video player"
           frameBorder="0"
