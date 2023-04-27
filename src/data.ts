@@ -43,24 +43,24 @@ export const homeData = [
 export const ListData = [
   {
     link: 'a',
-    host: 'West Ham VS Liverpool Live',
-    dateLocation: '2023-04-26 19:45 UK',
+    host: 'Everton VS Newcastle United Live',
+    dateLocation: '2023-04-27 19:45 UK',
     price: '20,000',
-    image: sportAssets.westliv,
+    image: sportAssets.neweve,
   },
   {
     link: 'b',
-    host: 'Manchester City VS Arsenal Live ',
-    dateLocation: '2023-04-26 20:00 UK',
+    host: 'Tottenham VS Man United Live',
+    dateLocation: '2023-04-27 20:15 UK',
     price: '20,000',
-    image: sportAssets.cityvars,
+    image: sportAssets.mantot,
   },
   {
     link: 'c',
-    host: 'Chelsea VS Brentford Live ',
-    dateLocation: '2023-04-26 19:45 UK',
+    host: 'Southampton VS AFC Bournemouth Live',
+    dateLocation: '2023-04-27 19:45 UK',
     price: '20,000',
-    image: sportAssets.brentchel,
+    image: sportAssets.soubur,
   },
   // {
   //   link: 'https://weaksports.xyz/footy/ch1.php',

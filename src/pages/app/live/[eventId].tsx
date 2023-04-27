@@ -8,8 +8,9 @@ import Link from 'next/link';
 const links: any = {
   a: 'https://weaksports.xyz/footy/ch2.php',
   b: 'https://weaksports.xyz/footy/ch1.php',
-  c: 'https://weaksports.xyz/footy/ch3.php',
+  c: 'https://weakstream.org/streams/badifgci',
 };
+
 const EventStream = () => {
   const router: any = useRouter();
   return (
@@ -75,7 +76,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            West Ham VS Liverpool{' '}
+            Everton VS Newcastle{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -106,7 +107,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            Man City VS Arsenal{' '}
+            Tottenham VS Man United{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -137,7 +138,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            Chelsea VS Brentford{' '}
+            Southampton VS Bournemouth{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
