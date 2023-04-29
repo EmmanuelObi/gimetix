@@ -5,8 +5,10 @@ import React from 'react';
 import Image from 'next/image';
 import classes from '@/styles/app/list.module.css';
 import { homeData, ListData, upcomingListData } from '@/data';
+import { useRouter } from 'next/router';
 
 const Home = () => {
+  const router = useRouter();
   return (
     <Box width="full" my="10" overflowY="scroll" h="calc(100vh - 160px)">
       <Text
@@ -28,6 +30,8 @@ const Home = () => {
             minH="500px"
             bg={{ base: 'black', red: 'red' }}
             mx="2"
+            onClick={() => router.push('/app/live')}
+            cursor="pointer"
           >
             <Image src={item.image} alt="wizzy" className={classes.mainImg} />
             <Box

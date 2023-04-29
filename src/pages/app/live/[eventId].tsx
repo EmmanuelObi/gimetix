@@ -44,7 +44,7 @@ const EventStream = () => {
           alignItems="center"
         >
           <Text color="#fff" fontWeight="bold" fontFamily="Work Sans">
-            All Streams
+            Upcoming Streams
           </Text>
           <chakra.span
             w={{ base: 'calc(100% - 100px)', md: 'calc(100% - 200px)' }}
@@ -76,7 +76,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            Everton VS Newcastle{' '}
+            Brentford VS Not Forest{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -87,7 +87,8 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              <Link href={`/app/live/a`}>Watch</Link>
+              {/* <Link href={`/app/live/a`}>Watch</Link> */}
+              Not live
             </chakra.span>
           </Text>
           <Text
@@ -107,7 +108,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            Tottenham VS Man United{' '}
+            Brighton VS Wolves{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -118,7 +119,8 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              <Link href={`/app/live/b`}>Watch</Link>
+              Not live
+              {/* <Link href={`/app/live/b`}>Watch</Link> */}
             </chakra.span>
           </Text>
           <Text
@@ -138,7 +140,7 @@ const EventStream = () => {
             position="relative"
             my="1"
           >
-            Southampton VS Bournemouth{' '}
+            Suns VS Nuggets{' '}
             <chakra.span
               color="#fff"
               bg="#0060FF"
@@ -149,7 +151,8 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              <Link href={`/app/live/c`}>Watch</Link>
+              {/* <Link href={`/app/live/c`}>Watch</Link> */}
+              Not live
             </chakra.span>
           </Text>
         </Box>
