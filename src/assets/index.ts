@@ -49,10 +49,10 @@ import home1 from './home-img/home1.svg';
 import home2 from './home-img/home2.svg';
 import home3 from './home-img/home3.svg';
 import home4 from './home-img/home4.svg';
-
-import soubur from './sport-img/soubur.avif';
-import mantot from './sport-img/mantot.png';
-import neweve from './sport-img/evenew.jpeg';
+import crywes from './sport-img/CRY-WES.png';
+import briwol from './sport-img/BRI-WOL.png';
+import brenot from './sport-img/BRE-NOT.png';
+import pheden from './sport-img/DEN-SUNS.png';
 
 export const homeAssets = {
   home1,
@@ -113,9 +113,10 @@ export const sportAssets = {
   field3,
   field4,
   field5,
-  soubur,
-  mantot,
-  neweve,
+  crywes,
+  briwol,
+  brenot,
+  pheden,
 };
 
 export const movieAssets = {

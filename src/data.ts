@@ -43,25 +43,25 @@ export const homeData = [
 export const ListData = [
   {
     link: 'a',
-    host: 'Everton VS Newcastle United Live',
-    dateLocation: '2023-04-27 19:45 UK',
+    host: 'Crystal Palace VS West Ham United Live',
+    dateLocation: '2023-04-29 12:30 UK ',
     price: '20,000',
-    image: sportAssets.neweve,
+    image: sportAssets.crywes,
   },
-  {
-    link: 'b',
-    host: 'Tottenham VS Man United Live',
-    dateLocation: '2023-04-27 20:15 UK',
-    price: '20,000',
-    image: sportAssets.mantot,
-  },
-  {
-    link: 'c',
-    host: 'Southampton VS AFC Bournemouth Live',
-    dateLocation: '2023-04-27 19:45 UK',
-    price: '20,000',
-    image: sportAssets.soubur,
-  },
+  // {
+  //   link: 'b',
+  //   host: 'Tottenham VS Man United Live',
+  //   dateLocation: '2023-04-27 20:15 UK',
+  //   price: '20,000',
+  //   image: sportAssets.mantot,
+  // },
+  // {
+  //   link: 'c',
+  //   host: 'Southampton VS AFC Bournemouth Live',
+  //   dateLocation: '2023-04-27 19:45 UK',
+  //   price: '20,000',
+  //   image: sportAssets.soubur,
+  // },
   // {
   //   link: 'https://weaksports.xyz/footy/ch1.php',
   //   host: 'Bovi',
@@ -171,6 +171,29 @@ export const ListData = [
   //   price: '5,000',
   //   image: movieAssets.designatedImg,
   // },
+];
+export const upcomingListData = [
+  {
+    link: 'a',
+    host: "Brentford VS Not' Forest Live",
+    dateLocation: '2023-04-29 12:30 UK ',
+    price: '20,000',
+    image: sportAssets.brenot,
+  },
+  {
+    link: 'b',
+    host: 'Brighton VS Wolves Live',
+    dateLocation: '2023-04-29 12:30 UK ',
+    price: '20,000',
+    image: sportAssets.briwol,
+  },
+  {
+    link: 'c',
+    host: 'Phoenix Suns VS Denver Nuggets',
+    dateLocation: '2023-04-29 12:30 UK ',
+    price: '20,000',
+    image: sportAssets.pheden,
+  },
 ];
 export const concertData = [
   {
