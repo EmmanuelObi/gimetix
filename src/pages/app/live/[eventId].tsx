@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const links: any = {
-  a: 'https://weaksports.xyz/footy/ch2.php',
+  a: 'https://weaksports.xyz/footy/ch1.php',
   b: 'https://weaksports.xyz/footy/ch1.php',
   c: 'https://weakstream.org/streams/badifgci',
 };

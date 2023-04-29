@@ -4,7 +4,7 @@ import { VStack, Text, HStack, Box, chakra } from '@chakra-ui/react';
 import React from 'react';
 import Image from 'next/image';
 import classes from '@/styles/app/list.module.css';
-import { homeData, ListData } from '@/data';
+import { homeData, ListData, upcomingListData } from '@/data';
 
 const Home = () => {
   return (
@@ -82,7 +82,7 @@ const Home = () => {
       </Box>
 
       <HStack overflowX="scroll" w="full">
-        {ListData.reverse().map((item, id) => (
+        {upcomingListData.map((item, id) => (
           <VStack
             key={id}
             position="relative"
