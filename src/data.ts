@@ -42,11 +42,18 @@ export const homeData = [
 ];
 export const ListData = [
   {
-    link: 'a',
-    host: 'Crystal Palace VS West Ham United Live',
+    link: 'b',
+    host: "Brentford VS Not' Forest Live",
     dateLocation: '2023-04-29 12:30 UK ',
     price: '20,000',
-    image: sportAssets.crywes,
+    image: sportAssets.brenot,
+  },
+  {
+    link: 'c',
+    host: 'Brighton VS Wolves Live',
+    dateLocation: '2023-04-29 12:30 UK ',
+    price: '20,000',
+    image: sportAssets.briwol,
   },
   // {
   //   link: 'b',
@@ -173,20 +180,6 @@ export const ListData = [
   // },
 ];
 export const upcomingListData = [
-  {
-    link: 'a',
-    host: "Brentford VS Not' Forest Live",
-    dateLocation: '2023-04-29 12:30 UK ',
-    price: '20,000',
-    image: sportAssets.brenot,
-  },
-  {
-    link: 'b',
-    host: 'Brighton VS Wolves Live',
-    dateLocation: '2023-04-29 12:30 UK ',
-    price: '20,000',
-    image: sportAssets.briwol,
-  },
   {
     link: 'c',
     host: 'Phoenix Suns VS Denver Nuggets',

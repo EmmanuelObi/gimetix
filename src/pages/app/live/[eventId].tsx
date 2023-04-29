@@ -7,8 +7,8 @@ import Link from 'next/link';
 
 const links: any = {
   a: 'https://weaksports.xyz/footy/ch1.php',
-  b: 'https://weaksports.xyz/footy/ch1.php',
-  c: 'https://weakstream.org/streams/badifgci',
+  b: 'https://weaksports.xyz/footy/ch8.php',
+  c: 'https://weaksports.xyz/footy/ch5.php',
 };
 
 const EventStream = () => {
@@ -59,7 +59,7 @@ const EventStream = () => {
           flexWrap="wrap"
           w="full"
         >
-          <Text
+          {/* <Text
             display="flex"
             alignItems="center"
             justifyContent="space-between"
@@ -87,7 +87,7 @@ const EventStream = () => {
               py="1"
               cursor="pointer"
             >
-              {/* <Link href={`/app/live/a`}>Watch</Link> */}
+              <Link href={`/app/live/a`}>Watch</Link>
               Not live
             </chakra.span>
           </Text>
@@ -120,9 +120,9 @@ const EventStream = () => {
               cursor="pointer"
             >
               Not live
-              {/* <Link href={`/app/live/b`}>Watch</Link> */}
+              <Link href={`/app/live/b`}>Watch</Link>
             </chakra.span>
-          </Text>
+          </Text> */}
           <Text
             display="flex"
             alignItems="center"
