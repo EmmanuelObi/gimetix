@@ -55,6 +55,7 @@ import livtot from './sport-img/livtot.jpeg';
 import newsou from './sport-img/newsou.jpeg';
 import beelee from './sport-img/BEELEE.avif';
 import heat from './sport-img/NYK-HEAT.png';
+import psglor from './sport-img/psglor.jpeg';
 
 export const homeAssets = {
   home1,
@@ -121,6 +122,7 @@ export const sportAssets = {
   livtot,
   newsou,
   heat,
+  psglor,
 };
 
 export const movieAssets = {

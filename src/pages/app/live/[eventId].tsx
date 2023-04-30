@@ -10,6 +10,7 @@ const links: any = {
   b: 'https://weaksports.xyz/footy/ch5.php',
   c: 'https://weaksports.xyz/footy/ch12.php',
   d: 'https://weakstream.org/streams/badifgef',
+  e: 'https://weaksports.xyz/footy/ch9.php',
 };
 
 const EventStream = () => {
@@ -124,6 +125,7 @@ const EventStream = () => {
               <Link href={`/app/live/b`}>Watch</Link>
             </chakra.span>
           </Text> */}
+
           <Text
             display="flex"
             alignItems="center"
@@ -133,39 +135,7 @@ const EventStream = () => {
             fontWeight="bold"
             fontFamily="Work Sans"
             fontSize="md"
-            minW={{ base: 'full', md: '300px' }}
-            color="#fff"
-            bg="#1E1B1B"
-            _hover={{ bg: '#1e1b1b' }}
-            borderRadius="10px"
-            position="relative"
-            my="1"
-          >
-            Liverpool VS Tottenham{' '}
-            <chakra.span
-              color="#fff"
-              bg="#0060FF"
-              fontFamily="Work Sans"
-              fontWeight="bold"
-              rounded="md"
-              px="2"
-              py="1"
-              cursor="pointer"
-            >
-              {/* <Link href={`/app/live/c`}>Watch</Link> */}
-              Not live
-            </chakra.span>
-          </Text>
-          <Text
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            py="3"
-            px="3"
-            fontWeight="bold"
-            fontFamily="Work Sans"
-            fontSize="md"
-            minW={{ base: 'full', md: '300px' }}
+            minW={{ base: 'full', md: '350px' }}
             color="#fff"
             bg="#1E1B1B"
             _hover={{ bg: '#1e1b1b' }}

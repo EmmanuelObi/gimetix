@@ -41,43 +41,43 @@ export const homeData = [
   },
 ];
 export const ListData = [
-  {
-    link: 'a',
-    host: 'Bournemouth VS Leeds Live',
-    dateLocation: '2023-04-30 14:00 UK',
-    price: '20,000',
-    image: sportAssets.beelee,
-  },
+  // {
+  //   link: 'a',
+  //   host: 'Bournemouth VS Leeds Live',
+  //   dateLocation: '2023-04-30 14:00 UK',
+  //   price: '20,000',
+  //   image: sportAssets.beelee,
+  // },
+  // {
+  //   link: 'c',
+  //   host: 'Man United VS Aston Villa Live',
+  //   dateLocation: '2023-04-30 14:00 UK',
+  //   price: '20,000',
+  //   image: sportAssets.manvil,
+  // },
+  // {
+  //   link: 'd',
+  //   host: 'Newcastle VS Southampton Live',
+  //   dateLocation: '2023-04-30 14:00 UK',
+  //   price: '20,000',
+  //   image: sportAssets.newsou,
+  // },
   {
     link: 'b',
-    host: 'Fulham VS Manchester City Live',
-    dateLocation: '2023-04-30 14:00 UK',
-    price: '20,000',
-    image: sportAssets.fulcit,
-  },
-  {
-    link: 'c',
-    host: 'Man United VS Aston Villa Live',
-    dateLocation: '2023-04-30 14:00 UK',
-    price: '20,000',
-    image: sportAssets.manvil,
-  },
-  {
-    link: 'd',
-    host: 'Newcastle VS Southampton Live',
-    dateLocation: '2023-04-30 14:00 UK',
-    price: '20,000',
-    image: sportAssets.newsou,
-  },
-];
-export const upcomingListData = [
-  {
-    link: 'c',
     host: 'Liverpool VS Tottenham Hotspur',
     dateLocation: '2023-04-30 16:30 UK',
     price: '20,000',
     image: sportAssets.livtot,
   },
+  {
+    link: 'e',
+    host: 'Paris Saint Germain VS Lorient',
+    dateLocation: '2023-04-30 16:05 UK',
+    price: '20,000',
+    image: sportAssets.psglor,
+  },
+];
+export const upcomingListData = [
   {
     link: 'c',
     host: 'New York Knicks VS Miami Heat',
