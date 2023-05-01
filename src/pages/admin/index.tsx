@@ -25,9 +25,8 @@ const Users = () => {
     getUsers();
   }, []);
 
-  console.log({ userData });
   return (
-    <VStack w="full" minH="100vh" bg="#fff" spacing="10" p="10">
+    <VStack align="start" w="full" minH="100vh" bg="#fff" spacing="10" p="10">
       {userData ? (
         <>
           <Text color="black" fontWeight="bold" fontSize="lg">
