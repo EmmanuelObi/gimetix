@@ -18,7 +18,9 @@ const Live = () => {
         id: doc.id,
       }));
       filteredData = filteredData.filter(
-        (item: any) => item.dateTime.seconds < new Date().getSeconds()
+        (item: any) =>
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() <=
+          new Date().getSeconds()
       );
       setStreamData(filteredData);
     } catch (err) {
