@@ -16,20 +16,26 @@ interface IListCardProps {
   isLive: boolean;
 }
 
-const ListCard = ({ id, item, isLive }: IListCardProps) => {
-  const { host, dateLocation, image, link } = item;
+const ListCard = ({ id, item, isLive }: any) => {
+  const { title, dateTime, imageUrl, streamLink } = item;
   return (
-    <Link href={`/app/live/${link}`} className={classes.list_card}>
+    <Link href={`/app/live/${id}`} className={classes.list_card}>
       {isLive ? <p className={classes.live_area}>LIVE</p> : null}
       <Image
-        src={image}
+        src={imageUrl}
         alt={`event-${id + 1}`}
         className={classes.listImage}
+        width="390"
+        height="200"
       />
 
       <div className={classes.info}>
-        <p>{host}</p>
-        <span>{isLive ? 'Streaming' : dateLocation}</span>
+        <p>{title}</p>
+        <span>
+          {isLive
+            ? 'Streaming'
+            : new Date(dateTime.seconds * 1000).toLocaleString()}
+        </span>
       </div>
     </Link>
   );
