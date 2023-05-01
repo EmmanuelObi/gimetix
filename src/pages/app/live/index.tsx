@@ -5,6 +5,7 @@ import { ListData } from '@/data';
 import ListCard from '@/components/ListCard/ListCard';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebase';
+import { VStack } from '@chakra-ui/react';
 
 const Live = () => {
   const [streamsData, setStreamData] = useState<any>();
@@ -12,10 +13,13 @@ const Live = () => {
   const getStreams = async () => {
     try {
       const data = await getDocs(streamsRef);
-      const filteredData = data.docs.map((doc) => ({
+      let filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+      filteredData = filteredData.filter(
+        (item: any) => item.dateTime.seconds < new Date().getSeconds()
+      );
       setStreamData(filteredData);
     } catch (err) {
       console.error(err);
@@ -26,9 +30,15 @@ const Live = () => {
   }, []);
   return (
     <div className={classes.list_container}>
-      {streamsData?.map((item: any, id: any) => (
-        <ListCard id={id} key={id} item={item} isLive={true} />
-      ))}
+      {streamsData?.length > 0 ? (
+        streamsData?.map((item: any, id: any) => (
+          <ListCard id={id} key={id} item={item} isLive={true} />
+        ))
+      ) : (
+        <VStack w="full" align="center" p="10">
+          <h1 style={{ color: '#fff' }}>No live games at the moment</h1>
+        </VStack>
+      )}
     </div>
   );
 };

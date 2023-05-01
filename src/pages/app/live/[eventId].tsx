@@ -18,6 +18,7 @@ const links: any = {
 const EventStream = () => {
   const router: any = useRouter();
   const [streamsData, setStreamData] = useState<any>();
+  const [otherStreamsData, setOtherStreamData] = useState<any>();
   const streamsRef = collection(db, 'streams');
   const getStreams = async () => {
     try {
@@ -26,7 +27,13 @@ const EventStream = () => {
         ...doc.data(),
         id: doc.id,
       }));
+      let otherData = filteredData.filter(
+        (item: any, id: any) =>
+          item.dateTime.seconds < new Date().getSeconds() &&
+          id !== router.query.eventId
+      );
       setStreamData(filteredData);
+      setOtherStreamData(otherData);
     } catch (err) {
       console.error(err);
     }
@@ -55,7 +62,7 @@ const EventStream = () => {
               height="400"
               // src={links[router.query.eventId]}
               src={streamsData[router.query.eventId].streamLink}
-              title="YouTube video player"
+              title="Video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -69,7 +76,7 @@ const EventStream = () => {
               alignItems="center"
             >
               <Text color="#fff" fontWeight="bold" fontFamily="Work Sans">
-                All Streams
+                Other Streams
               </Text>
               <chakra.span
                 w={{ base: 'calc(100% - 100px)', md: 'calc(100% - 200px)' }}
@@ -148,7 +155,7 @@ const EventStream = () => {
               <Link href={`/app/live/b`}>Watch</Link>
             </chakra.span>
           </Text> */}
-              {streamsData?.map((item: any, id: any) => (
+              {otherStreamsData?.map((item: any) => (
                 <Text
                   key={item.id}
                   display="flex"
@@ -179,7 +186,7 @@ const EventStream = () => {
                     py="1"
                     cursor="pointer"
                   >
-                    <Link href={`/app/live/${id}`}>Watch</Link>
+                    <Link href={`/app/live`}>Watch</Link>
                   </chakra.span>
                 </Text>
               ))}
