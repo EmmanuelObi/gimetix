@@ -69,7 +69,7 @@ const EventStream = () => {
               alignItems="center"
             >
               <Text color="#fff" fontWeight="bold" fontFamily="Work Sans">
-                Upcoming Streams
+                All Streams
               </Text>
               <chakra.span
                 w={{ base: 'calc(100% - 100px)', md: 'calc(100% - 200px)' }}
@@ -148,39 +148,41 @@ const EventStream = () => {
               <Link href={`/app/live/b`}>Watch</Link>
             </chakra.span>
           </Text> */}
-
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-                py="3"
-                px="3"
-                fontWeight="bold"
-                fontFamily="Work Sans"
-                fontSize="md"
-                minW={{ base: 'full', md: '350px' }}
-                color="#fff"
-                bg="#1E1B1B"
-                _hover={{ bg: '#1e1b1b' }}
-                borderRadius="10px"
-                position="relative"
-                my="1"
-              >
-                NY Knicks VS Miami Heat{' '}
-                <chakra.span
-                  color="#fff"
-                  bg="#0060FF"
-                  fontFamily="Work Sans"
+              {streamsData?.map((item: any, id: any) => (
+                <Text
+                  key={item.id}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  py="3"
+                  px="3"
                   fontWeight="bold"
-                  rounded="md"
-                  px="2"
-                  py="1"
-                  cursor="pointer"
+                  fontFamily="Work Sans"
+                  fontSize="md"
+                  minW={{ base: 'full', md: '350px' }}
+                  color="#fff"
+                  bg="#1E1B1B"
+                  _hover={{ bg: '#1e1b1b' }}
+                  borderRadius="10px"
+                  position="relative"
+                  my="1"
+                  textTransform="capitalize"
                 >
-                  {/* <Link href={`/app/live/c`}>Watch</Link> */}
-                  Not live
-                </chakra.span>
-              </Text>
+                  {item.title}{' '}
+                  <chakra.span
+                    color="#fff"
+                    bg="#0060FF"
+                    fontFamily="Work Sans"
+                    fontWeight="bold"
+                    rounded="md"
+                    px="2"
+                    py="1"
+                    cursor="pointer"
+                  >
+                    <Link href={`/app/live/${id}`}>Watch</Link>
+                  </chakra.span>
+                </Text>
+              ))}
             </Box>
           </VStack>
         </>
