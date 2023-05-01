@@ -30,12 +30,12 @@ import { IconPlus, IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { notifications } from '@mantine/notifications';
+import useStreams from '@/hooks/useStreams';
 
 const Streams = () => {
-  const [streamsData, setStreamData] = useState<any>();
+  const { streamsData, getStreams, formLoading, addStream, deleteStream } =
+    useStreams();
   const [imgLoading, setImgLoading] = useState(false);
-  const [formLoading, setFormLoading] = useState(false);
-  const streamsRef = collection(db, 'streams');
   const [opened, { open, close }] = useDisclosure(false);
   const form = useForm({
     initialValues: {
@@ -57,70 +57,6 @@ const Streams = () => {
     },
   });
 
-  const getStreams = async () => {
-    try {
-      const data = await getDocs(streamsRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setStreamData(filteredData);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const addStream = async (data: any, e: any) => {
-    e.preventDefault();
-    try {
-      setFormLoading(true);
-      await addDoc(streamsRef, {
-        title: data.title,
-        genre: data.genre,
-        imageUrl: data.imageUrl,
-        streamLink: data.streamLink,
-        dateTime: data.dateTime,
-      });
-      form.reset();
-      close();
-      getStreams();
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setFormLoading(false);
-    }
-  };
-
-  const deleteStream = async (id: any) => {
-    const streamDoc = doc(db, 'streams', id);
-    try {
-      await deleteDoc(streamDoc);
-      notifications.show({
-        id: 'delete',
-        color: 'indigo',
-        title: 'Success',
-        message: 'Stream Deleted',
-        autoClose: 3000,
-        withCloseButton: false,
-      });
-      getStreams();
-    } catch (err) {
-      console.error(err);
-      notifications.show({
-        id: 'upload',
-        color: 'indiredgo',
-        title: 'Error',
-        message: 'Failed to delete',
-        autoClose: 3000,
-        withCloseButton: false,
-      });
-    }
-  };
-
-  //   const updateStream = async (id: any, data: any) => {
-  //      const streamDoc = doc(db, 'streams', id);
-  //      await updateDoc(streamDoc, {})
-  //   };
   useEffect(() => {
     getStreams();
   }, []);
@@ -140,7 +76,11 @@ const Streams = () => {
 
           <Modal opened={opened} onClose={close} title="Add Stream">
             <LoadingOverlay visible={formLoading} overlayBlur={2} />
-            <form onSubmit={form.onSubmit(addStream)}>
+            <form
+              onSubmit={form.onSubmit((data, e) =>
+                addStream(data, e, form, close)
+              )}
+            >
               <TextInput
                 label="Title"
                 placeholder="New York Knicks VS Miami Heat"

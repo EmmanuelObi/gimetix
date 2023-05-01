@@ -19,7 +19,10 @@ interface IListCardProps {
 const ListCard = ({ id, item, isLive }: any) => {
   const { title, dateTime, imageUrl, streamLink } = item;
   return (
-    <Link href={`/app/live/${id}`} className={classes.list_card}>
+    <Link
+      href={isLive ? `/app/live/${id}` : '/app/live'}
+      className={classes.list_card}
+    >
       {isLive ? <p className={classes.live_area}>LIVE</p> : null}
       <Image
         src={imageUrl}
