@@ -5,14 +5,6 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 } from 'uuid';
 import { VStack, Text } from '@chakra-ui/react';
 import { DateTimePicker } from '@mantine/dates';
-import {
-  addDoc,
-  collection,
-  getDocs,
-  deleteDoc,
-  doc,
-  updateDoc,
-} from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import Admin from './container';
 import { useDisclosure } from '@mantine/hooks';

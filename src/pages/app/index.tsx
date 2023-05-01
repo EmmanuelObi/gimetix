@@ -22,11 +22,22 @@ const Home = () => {
         ...doc.data(),
         id: doc.id,
       }));
-      let liveData = filteredData.filter(
-        (item: any) => item.dateTime.seconds < new Date().getSeconds()
+      let liveData: any = filteredData.filter(
+        (item: any) =>
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() <=
+          new Date().getSeconds()
       );
-      let upcomingData = filteredData.filter(
-        (item: any) => item.dateTime.seconds > new Date().getSeconds()
+
+      liveData = liveData.sort(
+        (a: any, b: any) => a.dateTime.seconds < b.dateTime.seconds
+      );
+      let upcomingData: any = filteredData.filter(
+        (item: any) =>
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() >
+          new Date().getSeconds()
+      );
+      upcomingData = upcomingData.sort(
+        (a: any, b: any) => a.dateTime.seconds < b.dateTime.seconds
       );
       setStreamData(filteredData);
       setLiveStreamData(liveData);
@@ -35,6 +46,7 @@ const Home = () => {
       console.error(err);
     }
   };
+
   useEffect(() => {
     getStreams();
   }, []);

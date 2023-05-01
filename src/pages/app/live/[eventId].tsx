@@ -23,14 +23,19 @@ const EventStream = () => {
   const getStreams = async () => {
     try {
       const data = await getDocs(streamsRef);
-      const filteredData = data.docs.map((doc) => ({
+      let filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+      filteredData = filteredData.filter(
+        (item: any) =>
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() <=
+          new Date().getSeconds()
+      );
       let otherData = filteredData.filter(
         (item: any, id: any) =>
-          item.dateTime.seconds < new Date().getSeconds() &&
-          id !== router.query.eventId
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() >
+          new Date().getSeconds()
       );
       setStreamData(filteredData);
       setOtherStreamData(otherData);
@@ -41,6 +46,7 @@ const EventStream = () => {
   useEffect(() => {
     getStreams();
   }, []);
+
   return (
     <div className={classes.list_container}>
       <br />{' '}
@@ -61,7 +67,11 @@ const EventStream = () => {
               width="700"
               height="400"
               // src={links[router.query.eventId]}
-              src={streamsData[router.query.eventId].streamLink}
+              src={
+                streamsData.length > 0
+                  ? streamsData[router.query.eventId].streamLink
+                  : ''
+              }
               title="Video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -155,41 +165,49 @@ const EventStream = () => {
               <Link href={`/app/live/b`}>Watch</Link>
             </chakra.span>
           </Text> */}
-              {otherStreamsData?.map((item: any) => (
-                <Text
-                  key={item.id}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="space-between"
-                  py="3"
-                  px="3"
-                  fontWeight="bold"
-                  fontFamily="Work Sans"
-                  fontSize="md"
-                  minW={{ base: 'full', md: '350px' }}
-                  color="#fff"
-                  bg="#1E1B1B"
-                  _hover={{ bg: '#1e1b1b' }}
-                  borderRadius="10px"
-                  position="relative"
-                  my="1"
-                  textTransform="capitalize"
-                >
-                  {item.title}{' '}
-                  <chakra.span
-                    color="#fff"
-                    bg="#0060FF"
-                    fontFamily="Work Sans"
+              {otherStreamsData.length > 0 ? (
+                otherStreamsData?.map((item: any) => (
+                  <Text
+                    key={item.id}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    py="3"
+                    px="3"
                     fontWeight="bold"
-                    rounded="md"
-                    px="2"
-                    py="1"
-                    cursor="pointer"
+                    fontFamily="Work Sans"
+                    fontSize="md"
+                    minW={{ base: 'full', md: '350px' }}
+                    color="#fff"
+                    bg="#1E1B1B"
+                    _hover={{ bg: '#1e1b1b' }}
+                    borderRadius="10px"
+                    position="relative"
+                    my="1"
+                    textTransform="capitalize"
                   >
-                    <Link href={`/app/live`}>Watch</Link>
-                  </chakra.span>
-                </Text>
-              ))}
+                    {item.title}{' '}
+                    <chakra.span
+                      color="#fff"
+                      bg="#0060FF"
+                      fontFamily="Work Sans"
+                      fontWeight="bold"
+                      rounded="md"
+                      px="2"
+                      py="1"
+                      cursor="pointer"
+                    >
+                      <Link href={`/app/live`}>Watch</Link>
+                    </chakra.span>
+                  </Text>
+                ))
+              ) : (
+                <h1
+                  style={{ color: '#fff', textAlign: 'center', width: '100%' }}
+                >
+                  No Other live stream available at the moment
+                </h1>
+              )}
             </Box>
           </VStack>
         </>
