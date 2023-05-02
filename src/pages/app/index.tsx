@@ -29,7 +29,7 @@ const Home = () => {
       );
 
       liveData = liveData.sort(
-        (a: any, b: any) => a.dateTime.seconds < b.dateTime.seconds
+        (a: any, b: any) => a.dateTime.seconds - b.dateTime.seconds
       );
       let upcomingData: any = filteredData.filter(
         (item: any) =>
@@ -37,7 +37,7 @@ const Home = () => {
           new Date().getSeconds()
       );
       upcomingData = upcomingData.sort(
-        (a: any, b: any) => a.dateTime.seconds < b.dateTime.seconds
+        (a: any, b: any) => a.dateTime.seconds - b.dateTime.seconds
       );
       setStreamData(filteredData);
       setLiveStreamData(liveData);
