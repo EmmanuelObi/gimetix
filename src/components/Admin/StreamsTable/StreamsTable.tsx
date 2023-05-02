@@ -92,6 +92,7 @@ export function StreamsTable({ data, deleteStream }: any) {
           Open Stream
         </a>
       </td>
+      <td>{new Date(row.dateTime.seconds * 1000).toLocaleString()}</td>
       <td>{row.genre}</td>
       <td>
         <a target="_blank" className={cx(classes.link)} href={row.imageUrl}>
@@ -135,6 +136,7 @@ export function StreamsTable({ data, deleteStream }: any) {
             <tr>
               <th>Title</th>
               <th>StreamLink</th>
+              <th>Date & Time</th>
               <th>Genre</th>
               <th>ImageUrl</th>
               <th>ID</th>
