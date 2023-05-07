@@ -25,7 +25,7 @@ const Live = () => {
       filteredData = filteredData.filter(
         (item: any) =>
           new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() <=
-          new Date().getSeconds()
+          Math.floor(Date.now() / 1000)
       );
       setStreamData(filteredData);
     } catch (err) {

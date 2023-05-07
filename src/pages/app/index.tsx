@@ -28,6 +28,8 @@ const Home = () => {
   const [upcomingStreamsData, setUpcomingStreamData] = useState<any>([]);
   const streamsRef = collection(db, 'streams');
   const getStreams = async () => {
+    let liveData: any;
+    let upcomingData: any;
     try {
       setPageLoading(true);
       const data = await getDocs(streamsRef);
@@ -35,30 +37,36 @@ const Home = () => {
         ...doc.data(),
         id: doc.id,
       }));
-      let liveData: any = filteredData.filter(
+      liveData = filteredData.filter(
         (item: any) =>
-          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() <=
-          new Date().getSeconds()
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() <
+          Math.floor(Date.now() / 1000)
       );
 
-      liveData = liveData.sort(
+      liveData.sort(
         (a: any, b: any) => a.dateTime.seconds - b.dateTime.seconds
       );
-      let upcomingData: any = filteredData.filter(
+      upcomingData = filteredData.filter(
         (item: any) =>
-          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() >
-          new Date().getSeconds()
+          new Date((item.dateTime.seconds - 1800) * 1000).getSeconds() >=
+          Math.floor(Date.now() / 1000)
       );
-      upcomingData = upcomingData.sort(
+      upcomingData.sort(
         (a: any, b: any) => a.dateTime.seconds - b.dateTime.seconds
       );
       setStreamData(filteredData);
-      setLiveStreamData(liveData);
-      setUpcomingStreamData(upcomingData);
     } catch (err) {
       console.error(err);
     } finally {
       setPageLoading(false);
+    }
+
+    try {
+      console.log({ upcomingData, liveData });
+      setLiveStreamData(() => liveData);
+      setUpcomingStreamData(() => upcomingData);
+    } catch (err) {
+      console.error(err);
     }
   };
 
