@@ -5,6 +5,9 @@ import PageHead from '@/components/PageHead/PageHead';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { auth } from '@/config/firebase';
+import Image from 'next/image';
+import { navbarIcons } from '@/assets';
+import { Spinner } from '@chakra-ui/react';
 
 export const workSans = Work_Sans({ subsets: ['latin'] });
 
@@ -18,9 +21,9 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        duration: 2,
+        duration: 5,
         delay: 0.9,
-        staggerChildren: 0.22,
+        staggerChildren: 0.4,
       },
     },
   };
@@ -59,6 +62,8 @@ export default function Home() {
       <PageHead />
       <main className={styles.main}>
         <div className={styles.center}>
+          <Image src={navbarIcons.logo} alt="logo" />
+
           <motion.h1
             variants={sentence}
             initial="hidden"
@@ -66,11 +71,7 @@ export default function Home() {
             className={workSans.className}
             style={{ fontFamily: 'Work Sans' }}
           >
-            {line1.split('').map((char, index) => (
-              <motion.span key={char + '-' + index} variants={letter}>
-                {char}
-              </motion.span>
-            ))}
+            <Spinner color="#fff" size="sm" />
           </motion.h1>
         </div>
       </main>
