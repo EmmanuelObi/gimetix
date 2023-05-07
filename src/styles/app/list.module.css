@@ -2,10 +2,19 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 20px;
   flex-wrap: wrap;
   height: calc(100vh - 160px);
   overflow-y: scroll;
+  padding: 0 80px;
+}
+.body {
+  width: 32%;
+  height: 200px;
+  margin-bottom: 80px;
+}
+.eventImg {
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .mainImg {
@@ -14,4 +23,27 @@
   height: 100% !important;
   object-fit: cover;
   object-position: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .list_container {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .body {
+    width: 48%;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .list_container {
+    justify-content: center;
+  }
+  .body {
+    width: 90%;
+    margin: 20px 0 20px 0;
+  }
 }
