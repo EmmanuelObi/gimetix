@@ -1,22 +1,35 @@
 import { concertAssets, homeAssets } from '@/assets';
 import AppWrapper from '@/wrappers/AppWrapper/AppWrapper';
-import { VStack, Text, HStack, Box, chakra } from '@chakra-ui/react';
+import {
+  VStack,
+  Text,
+  HStack,
+  Box,
+  chakra,
+  Skeleton,
+  Spinner,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import classes from '@/styles/app/list.module.css';
-import { homeData, ListData, upcomingListData } from '@/data';
+import { ListData } from '@/data';
 import { useRouter } from 'next/router';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebase';
+import ListCard from '@/components/ListCard/ListCard';
 
 const Home = () => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
   const router = useRouter();
-  const [streamsData, setStreamData] = useState<any>();
-  const [liveStreamsData, setLiveStreamData] = useState<any>();
-  const [upcomingStreamsData, setUpcomingStreamData] = useState<any>();
+  const [pageLoading, setPageLoading] = useState<boolean>(false);
+  const [streamsData, setStreamData] = useState<any>([]);
+  const [liveStreamsData, setLiveStreamData] = useState<any>([]);
+  const [upcomingStreamsData, setUpcomingStreamData] = useState<any>([]);
   const streamsRef = collection(db, 'streams');
   const getStreams = async () => {
     try {
+      setPageLoading(true);
       const data = await getDocs(streamsRef);
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
@@ -44,6 +57,8 @@ const Home = () => {
       setUpcomingStreamData(upcomingData);
     } catch (err) {
       console.error(err);
+    } finally {
+      setPageLoading(false);
     }
   };
 
@@ -51,9 +66,55 @@ const Home = () => {
     getStreams();
   }, []);
 
+  if (pageLoading) return <Spinner color="#fff" size="lg" />;
+  if (liveStreamsData?.length === 0 && upcomingStreamsData?.length === 0)
+    return <Text color="#fff">No streams at this time</Text>;
+
   return (
-    <Box width="full" my="10" overflowY="scroll" h="calc(100vh - 160px)">
-      {liveStreamsData?.length > 0 ? (
+    <Box width="full" my="10" overflowY="scroll" pl={isMobile ? '0' : '20'}>
+      {liveStreamsData.length > 0 ? (
+        <>
+          <Text
+            my="4"
+            w="full"
+            color="#fff"
+            fontWeight="bold"
+            fontFamily="Work Sans"
+          >
+            Now Streaming
+          </Text>
+          <HStack overflowX="scroll" w="full">
+            {liveStreamsData.length > 0
+              ? liveStreamsData.map((item: any, id: number) => (
+                  <ListCard key={id} id={id} isLive={false} item={item} />
+                ))
+              : null}
+          </HStack>{' '}
+        </>
+      ) : null}
+      {upcomingStreamsData?.length > 0 ? (
+        <>
+          {' '}
+          <Text
+            my="4"
+            w="full"
+            color="#fff"
+            fontWeight="bold"
+            fontFamily="Work Sans"
+          >
+            Upcoming
+          </Text>
+          <HStack overflowX="scroll" w="full">
+            {upcomingStreamsData.length > 0
+              ? upcomingStreamsData.map((item: any, id: number) => (
+                  <ListCard key={id} id={id} isLive={false} item={item} />
+                ))
+              : null}
+          </HStack>
+        </>
+      ) : null}
+
+      {/* {liveStreamsData?.length > 0 ? (
         <>
           {' '}
           <Text
@@ -114,9 +175,9 @@ const Home = () => {
             ))}
           </HStack>
         </>
-      ) : null}
+      ) : null} */}
 
-      {upcomingStreamsData?.length > 0 ? (
+      {/* {upcomingStreamsData?.length > 0 ? (
         <>
           {' '}
           <Box
@@ -187,7 +248,7 @@ const Home = () => {
             ))}
           </HStack>
         </>
-      ) : null}
+      ) : null} */}
     </Box>
   );
 };

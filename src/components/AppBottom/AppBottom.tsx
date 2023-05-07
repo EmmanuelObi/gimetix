@@ -43,7 +43,7 @@ const AppBottom = () => {
           className={classes.links}
         />
       </Link>{' '}
-      <Link href="/app/list">
+      <Link href="/app/live">
         <Image
           src={
             router.pathname.includes('/app/list')

@@ -5,6 +5,8 @@ import { Notifications } from '@mantine/notifications';
 import { workSans } from '.';
 import { ChakraProvider } from '@chakra-ui/react';
 import Script from 'next/script';
+import store from '@/state/store';
+import { Provider } from 'react-redux';
 
 export type PageLayoutProps = {
   children: React.ReactNode;
@@ -20,22 +22,23 @@ export default function App({
   pageProps,
 }: TComponentWithPageLayout) {
   return (
-    <MantineProvider>
-      <ChakraProvider>
-        <style jsx global>{`
-          html {
-            font-family: ${workSans.style.fontFamily};
-          }
-        `}</style>
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-JP7GFWH98T"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+    <Provider store={store}>
+      <MantineProvider>
+        <ChakraProvider>
+          <style jsx global>{`
+            html {
+              font-family: ${workSans.style.fontFamily};
+            }
+          `}</style>
+          <Script
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-JP7GFWH98T"
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
  window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -43,17 +46,18 @@ export default function App({
     page_path: window.location.pathname,
   });
         `,
-          }}
-        />
-        <Notifications position="top-right" zIndex={2077} />
-        {Component.PageLayout ? (
-          <Component.PageLayout>
+            }}
+          />
+          <Notifications position="top-right" zIndex={2077} />
+          {Component.PageLayout ? (
+            <Component.PageLayout>
+              <Component {...pageProps} />
+            </Component.PageLayout>
+          ) : (
             <Component {...pageProps} />
-          </Component.PageLayout>
-        ) : (
-          <Component {...pageProps} />
-        )}
-      </ChakraProvider>
-    </MantineProvider>
+          )}
+        </ChakraProvider>
+      </MantineProvider>
+    </Provider>
   );
 }

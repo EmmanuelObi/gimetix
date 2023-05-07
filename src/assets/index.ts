@@ -49,13 +49,8 @@ import home1 from './home-img/home1.svg';
 import home2 from './home-img/home2.svg';
 import home3 from './home-img/home3.svg';
 import home4 from './home-img/home4.svg';
-import fulcit from './sport-img/fulcit.jpeg';
-import manvil from './sport-img/manvil.jpeg';
-import livtot from './sport-img/livtot.jpeg';
-import newsou from './sport-img/newsou.jpeg';
-import beelee from './sport-img/BEELEE.avif';
-import heat from './sport-img/NYK-HEAT.png';
-import psglor from './sport-img/psglor.jpeg';
+import logo from './icons/g-logo.svg';
+import test from './sport-img/NYK-HEAT.png';
 
 export const homeAssets = {
   home1,
@@ -83,6 +78,7 @@ export const navbarIcons = {
   settingsIcon,
   logOutIcon,
   rightCaretIcon,
+  logo,
 };
 
 export const pageIcons = {
@@ -116,13 +112,7 @@ export const sportAssets = {
   field3,
   field4,
   field5,
-  fulcit,
-  manvil,
-  beelee,
-  livtot,
-  newsou,
-  heat,
-  psglor,
+  test,
 };
 
 export const movieAssets = {

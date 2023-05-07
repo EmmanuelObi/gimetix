@@ -23,22 +23,17 @@ const ListCard = ({ id, item, isLive }: any) => {
       href={isLive ? `/app/live/${id}` : '/app/live'}
       className={classes.list_card}
     >
-      {isLive ? <p className={classes.live_area}>LIVE</p> : null}
       <Image
         src={imageUrl}
         alt={`event-${id + 1}`}
         className={classes.listImage}
-        width="390"
-        height="200"
+        width="326"
+        height="220"
       />
 
       <div className={classes.info}>
         <p>{title}</p>
-        <span>
-          {isLive
-            ? 'Streaming'
-            : new Date(dateTime.seconds * 1000).toLocaleString()}
-        </span>
+        <span>Streaming</span>
       </div>
     </Link>
   );

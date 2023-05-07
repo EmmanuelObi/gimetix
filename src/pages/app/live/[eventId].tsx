@@ -3,9 +3,9 @@ import { Text, VStack, chakra, Box } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import classes from '@/styles/app/list.module.css';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebase';
+import { useSelector } from 'react-redux';
 
 const links: any = {
   a: 'https://weaksports.xyz/footy/ch13.php',
@@ -16,6 +16,9 @@ const links: any = {
 };
 
 const EventStream = () => {
+  const {
+    app: { currentStream },
+  }: any = useSelector((state) => state);
   const router: any = useRouter();
   const [streamsData, setStreamData] = useState<any>();
   const [otherStreamsData, setOtherStreamData] = useState<any>();
@@ -43,6 +46,7 @@ const EventStream = () => {
       console.error(err);
     }
   };
+
   useEffect(() => {
     getStreams();
   }, []);
@@ -52,33 +56,39 @@ const EventStream = () => {
       <br />{' '}
       {streamsData ? (
         <>
-          {' '}
-          <div
-            style={{
-              width: '100%',
-              height: '450px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              overflowY: 'hidden',
-            }}
-          >
-            <iframe
-              width="700"
-              height="400"
-              // src={links[router.query.eventId]}
-              src={
-                streamsData.length > 0
-                  ? streamsData[router.query.eventId].streamLink
-                  : ''
-              }
-              title="Video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <VStack w={{ base: '90%', md: '70%' }} mx="auto" mt="8">
+          {streamsData.length > 0 &&
+          streamsData[router.query.eventId].streamLink ? (
+            <div
+              style={{
+                width: '100%',
+                height: '450px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                overflowY: 'hidden',
+              }}
+            >
+              <iframe
+                width="700"
+                height="400"
+                src={
+                  streamsData.length > 0
+                    ? streamsData[router.query.eventId].streamLink
+                    : ''
+                }
+                title="Video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <Text color="#fff" textAlign="center" w="full" mt="20">
+              {currentStream} will be live 30 minutes to kickoff{' '}
+            </Text>
+          )}
+
+          {/* <VStack w={{ base: '90%', md: '70%' }} mx="auto" mt="8">
             <Box
               w="full"
               display="flex"
@@ -101,70 +111,6 @@ const EventStream = () => {
               flexWrap="wrap"
               w="full"
             >
-              {/* <Text
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            py="3"
-            px="3"
-            fontWeight="bold"
-            fontFamily="Work Sans"
-            fontSize="md"
-            minW={{ base: 'full', md: '300px' }}
-            color="#fff"
-            bg="#1E1B1B"
-            _hover={{ bg: '#1e1b1b' }}
-            borderRadius="10px"
-            position="relative"
-            my="1"
-          >
-            Brentford VS Not Forest{' '}
-            <chakra.span
-              color="#fff"
-              bg="#0060FF"
-              fontFamily="Work Sans"
-              fontWeight="bold"
-              rounded="md"
-              px="2"
-              py="1"
-              cursor="pointer"
-            >
-              <Link href={`/app/live/a`}>Watch</Link>
-              Not live
-            </chakra.span>
-          </Text>
-          <Text
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            py="3"
-            px="3"
-            fontWeight="bold"
-            fontFamily="Work Sans"
-            fontSize="md"
-            minW={{ base: 'full', md: '300px' }}
-            color="#fff"
-            bg="#1E1B1B"
-            _hover={{ bg: '#1e1b1b' }}
-            borderRadius="10px"
-            position="relative"
-            my="1"
-          >
-            Brighton VS Wolves{' '}
-            <chakra.span
-              color="#fff"
-              bg="#0060FF"
-              fontFamily="Work Sans"
-              fontWeight="bold"
-              rounded="md"
-              px="2"
-              py="1"
-              cursor="pointer"
-            >
-              Not live
-              <Link href={`/app/live/b`}>Watch</Link>
-            </chakra.span>
-          </Text> */}
               {otherStreamsData.length > 0 ? (
                 otherStreamsData?.map((item: any) => (
                   <Text
@@ -209,7 +155,7 @@ const EventStream = () => {
                 </h1>
               )}
             </Box>
-          </VStack>
+          </VStack> */}
         </>
       ) : (
         <h1>Loading....</h1>
